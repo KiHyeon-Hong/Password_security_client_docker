@@ -1,0 +1,14 @@
+files/
+한국어 기반의 비밀번호 특징 추출을 위한 한국어 단어 사전 목록
+
+koreaZxcvbn
+한국어 기반의 사전을 이용한 zxcvbn 평가모델
+
+koreanZxcvbnString
+한국어 기반의 단어 사전과 일치 여부 확인
+
+levenshteinDistance.js
+Levenshtein Distance를 구하는 모듈
+
+ludsPoint.js
+LUDS requirement를 구하는 모듈
