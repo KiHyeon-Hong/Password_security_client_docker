@@ -34,6 +34,6 @@ app.get('/serverAddressUpdate', (req, res, next) => {
   res.send(pwd.serverAddressUpdate(req.query.serverAddress));
 });
 
-app.listen(65001, () => {
+app.listen(65002, () => {
   console.log(`Server running...`);
 });

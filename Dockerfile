@@ -6,6 +6,6 @@ COPY package*.json ./
 RUN npm install
 COPY . .
 
-EXPOSE 65001
+EXPOSE 65002
 
 CMD [ "node", "mainController.js" ]
