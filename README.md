@@ -6,22 +6,28 @@
 git clone https://github.com/KiHyeon-Hong/Password_security_client_docker.git
 ```
 
-## Docker images
+## Create Docker images
 
 ```bash
 docker build . -t passwordsecurityclient
 docker run -p 65002:65002 -d passwordsecurityclient
+```
 
+```bash
 docker exec -it <container ID> /bin/bash
 ```
 
-## Document
+## API Document
 
-### serverAddress
+### serverAddressUpdate
+
+#### http://localhost:65002/serverAddressUpdate?serverAddress=(Address)
 
 - 비밀번호 보안성 학습모듈이 위치한 주소 변경 API
+-
 
 ```text
+# GET
 http://192.168.0.22:65002/serverAddressUpdate?serverAddress=192.168.0.22:65001
 ```
 
@@ -37,6 +43,7 @@ http://192.168.0.22:65002/serverAddressUpdate?serverAddress=192.168.0.22:65001
 - 사용자가 선택한 비밀번호 보안성 평가 API
 
 ```text
+# POST
 http://192.168.0.22:65002/passwordValidation?password=123456
 ```
 
@@ -54,6 +61,7 @@ http://192.168.0.22:65002/passwordValidation?password=123456
 - 학습한 비밀번호 보안성 평가모델 배포 요청 API
 
 ```text
+# GET
 http://192.168.0.22:65002/passwordModelDistribution?versionData=0.2&comment=TestComment
 ```
 
@@ -69,6 +77,7 @@ http://192.168.0.22:65002/passwordModelDistribution?versionData=0.2&comment=Test
 - 학습을 위한 유출된 비밀번호 추가 요청 API
 
 ```text
+# GET
 http://192.168.0.22:65002/passwordDictUpdate?dictionary={"dictionary":"q1w2e3r4"}&comment=TestComment
 ```
 
@@ -84,6 +93,7 @@ http://192.168.0.22:65002/passwordDictUpdate?dictionary={"dictionary":"q1w2e3r4"
 - 모델 학습에 사용하는 학습 하이퍼 파라매터 수정 요청 API
 
 ```text
+# GET
 http://192.168.0.22:65002/passwordModelParaUpdate?parameter={"node":4,"unit":[5,5,3,1],"activation":"relu","epoch":20}&comment=MyNewParameter
 ```
 
