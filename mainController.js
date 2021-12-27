@@ -7,6 +7,7 @@ const app = express();
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+// API
 app.get('/passwordModelDistribution', (req, res, next) => {
   var pwd = new PasswordSecurityClient.PasswordSecurity.PasswordSecurity();
   res.send(pwd.passwordModelDistribution(req.query.versionData, req.query.comment));
@@ -19,14 +20,23 @@ app.get('/passwordValidation', (req, res, next) => {
   });
 });
 
+app.post('/passwordValidation', (req, res, next) => {
+  var pwd = new PasswordSecurityClient.PasswordSecurity.PasswordSecurity();
+  pwd.passwordValidation(req.body.password).then(function (result) {
+    res.send(result);
+  });
+});
+
 app.get('/passwordDictUpdate', (req, res, next) => {
   var pwd = new PasswordSecurityClient.PasswordSecurity.PasswordSecurity();
-  res.send(pwd.passwordDictUpdate('{"dictionary":"q1w2e3r4"}', 'test message'));
+  // res.send(pwd.passwordDictUpdate('{"dictionary":"q1w2e3r4"}', 'test message'));
+  res.send(pwd.passwordDictUpdate(req.query.dictionary, req.query.comment));
 });
 
 app.get('/passwordModelParaUpdate', (req, res, next) => {
   var pwd = new PasswordSecurityClient.PasswordSecurity.PasswordSecurity();
-  res.send(pwd.passwordModelParaUpdate('{"node":4,"unit":[3,5,3,1],"activation":"relu","epoch":12}', 'test message.'));
+  // res.send(pwd.passwordModelParaUpdate('{"node":4,"unit":[3,5,3,1],"activation":"relu","epoch":12}', 'test message.'));
+  res.send(pwd.passwordModelParaUpdate(req.query.parameter, req.query.comment));
 });
 
 app.get('/serverAddressUpdate', (req, res, next) => {
