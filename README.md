@@ -63,3 +63,33 @@ http://192.168.0.22:65002/passwordModelDistribution?versionData=0.2&comment=Test
   "comment": "유출 비밀번호 예측모델 배포 완료"
 }
 ```
+
+### passwordDictUpdate
+
+- 학습을 위한 유출된 비밀번호 추가 요청 API
+
+```text
+http://192.168.0.22:65002/passwordDictUpdate?dictionary={"dictionary":"q1w2e3r4"}&comment=TestComment
+```
+
+```json
+{
+  "state": 200,
+  "comment": "사전 수정 요청 완료"
+}
+```
+
+### passwordModelParaUpdate
+
+- 모델 학습에 사용하는 학습 하이퍼 파라매터 수정 요청 API
+
+```text
+http://192.168.0.22:65002/passwordModelParaUpdate?parameter={"node":4,"unit":[5,5,3,1],"activation":"relu","epoch":20}&comment=MyNewParameter
+```
+
+```json
+{
+  "state": 200,
+  "comment": "하이퍼 파라매터 수정 요청 완료"
+}
+```
